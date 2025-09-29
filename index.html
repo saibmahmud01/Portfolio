@@ -3,92 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saib Mahmud Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Saib Mahmud - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root {
+            --orange: #ff4d00;
+            --dark: #0a0a0a;
+            --gray: #1a1a1a;
+            --text-gray: #888;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: #fff;
+            line-height: 1.6;
+        }
+
         .container {
-            background: rgba(0,0,0,0.5);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
             border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            padding: 40px 30px;
-            max-width: 350px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--gray);
+            padding: 3rem 0;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             text-align: center;
         }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
         }
-        h1 {
-            font-size: 2.2em;
-            margin: 0 0 10px 0;
-            font-weight: 700;
-            letter-spacing: 1px;
+
+        .stat-item p {
+            color: var(--text-gray);
         }
-        .subtitle {
-            font-size: 1.1em;
-            margin-bottom: 18px;
-            color: #e0e0e0;
+
+        /* Projects Section */
+        .projects {
+            padding: 4rem 0;
         }
-        .info {
-            margin: 18px 0;
-            font-size: 1em;
-        }
-        .contact {
-            margin-top: 22px;
-            font-size: 1em;
-        }
-        .contact a {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        .contact a:hover {
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             color: #fff;
         }
-        .tag {
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: var(--gray);
+            text-align: center;
+        }
+
+        .button {
             display: inline-block;
-            background: #ffd700;
-            color: #2193b0;
-            border-radius: 12px;
-            padding: 4px 12px;
-            font-size: 0.9em;
+            padding: 1rem 2rem;
+            background-color: var(--orange);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
             font-weight: 600;
-            margin: 6px 4px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff6a00;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://avatars.githubusercontent.com/u/235172307?v=4" alt="Saib Mahmud" class="avatar">
-        <h1>Saib Mahmud</h1>
-        <div class="subtitle">CSE Student @ United International University</div>
-        <div class="info">
-            <span class="tag">C Programming</span>
-            <span class="tag">Python</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Problem Solving</span>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">SM.</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-        <div class="contact">
-            <div>📞 <a href="tel:01886870684">01886870684</a></div>
-            <div>✉️ <a href="mailto:saibmahmud01@gmail.com">saibmahmud01@gmail.com</a></div>
+    </nav>
+
+    <section id="home" class="hero container">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm Saib Mahmud 👋</h1>
+            <p class="hero-subtitle">I'm currently studying Computer Science and Engineering at United International University. My academic journey has introduced me to programming with C, and I'm actively learning Python for data analysis, aiming to build a future in data science. 🚀</p>
+            <a href="#contact" class="button">Let's Connect 🤝</a>
         </div>
-    </div>
+        <div class="hero-image">
+            <img src="https://avatars.githubusercontent.com/u/235172307?v=4" alt="Saib Mahmud">
+        </div>
+    </section>
+
+    <section id="about" class="stats">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div style="color: var(--text-gray); margin: 2rem 0; font-size: 1.2rem;">
+                <p>🎓 Undergraduate student in CSE</p>
+                <p>💻 Learning C and Python</p>
+                <p>📊 Interested in data analysis and data science</p>
+                <p>🏫 United International University</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="projects container">
+        <h2 class="section-title">Skills & Goals</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">💪 Current Skills</h3>
+                    <p class="project-description">
+                        🖥️ C programming (academic)<br>
+                        🐍 Python (beginner, focused on data analysis)<br>
+                        🧩 Problem solving and logical thinking
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">🎯 Future Goals</h3>
+                    <p class="project-description">
+                        📈 Master Python for data science<br>
+                        🤖 Explore machine learning and AI<br>
+                        🌱 Contribute to open-source projects
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect 🤝</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">Feel free to reach out for collaboration or discussion about programming, data science, or academic topics!</p>
+            <div class="social-icons">
+                <a href="tel:01886870684">📞</a>
+                <a href="mailto:saibmahmud01@gmail.com">✉️</a>
+                <a href="https://github.com/saibmahmud01" style="font-size: 1.2rem;">🚀 GitHub</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
